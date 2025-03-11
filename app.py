@@ -183,7 +183,7 @@ if generate_button and topic :
                 st.rerun()
     else: 
         st.markdown("You've completed the test! Here's your summary:")
-        correct_answers = sum([1 for ans, correct in zip(st.session_state.answers, [q[5] for q in st.session_state.questions]) if ans == correct])
+        correct_answers = sum([1 for ans, correct in zip(st.session_state.answers, [q[-1] for q in st.session_state.questions]) if ans == correct])
         total_questions = len(st.session_state.answers)
         st.write(f"You score is {st.session_state.score} out of {st.session_state.total}.")
         if st.button("New Test"):
