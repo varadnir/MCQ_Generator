@@ -28,6 +28,7 @@ def query_llama3(user_query):
     Maintain UI-friendly structure - The format should be clean and suitable for integration into frontend interfaces. 
     give the output in the form of a python list, only a list nothing more.
     ensure that every given nested list has 6 elements.
+    For True or False questions only give 2 options
     """
 
     past_chat = st.session_state.memory.load_memory_variables({}).get("chat_history", [])
