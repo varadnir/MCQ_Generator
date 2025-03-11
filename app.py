@@ -121,7 +121,7 @@ if "current_question" in st.session_state:
     generate_button = st.session_state.generate_button  
 
 if "current_question" not in st.session_state:
-    print("initialized")
+    #print("initialized")
     topic = st.text_input("Enter Topic:", key="topic_input")
     generate_button = st.button("Generate MCQ")
     st.session_state.topic = topic
@@ -136,7 +136,7 @@ if st.session_state.once and topic and generate_button:
     st.session_state.current_question = 0
     st.session_state.score = 0
     st.session_state.answers = []
-    print(st.session_state.total)
+    #print(st.session_state.total)
 
 # Initialize session state for tracking progress if not already initialized
 # Show MCQ and handle answer selection
@@ -164,19 +164,19 @@ if generate_button and topic :
         for i, option in enumerate(options):
             if st.button(option, key=button_keys[i]):
                 answer = option
-                print("Answer : ",answer)
+                #print("Answer : ",answer)
                 # Store the user's answer in session state
                 if len(st.session_state.answers) <= st.session_state.current_question:
                     st.session_state.answers.append(answer)
-                    print("\nAppended answer \nAnswer :",st.session_state.answers,"   Correct answer : ",correct_answer)
+                    #print("\nAppended answer \nAnswer :",st.session_state.answers,"   Correct answer : ",correct_answer)
 
         if answer != None:
             # Increment question index if there's more
             if st.session_state.answers[0] == correct_answer:
-                print("Correct")
+                #print("Correct")
                 st.session_state.score += 1
             if st.session_state.current_question < st.session_state.total -1:
-                print("Next question")
+                #print("Next question")
                 st.session_state.current_question += 1
                 st.rerun()  # Refresh to show next question
             else:
